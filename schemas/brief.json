@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "player_id": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "swing_tendency": {
+      "type": "string"
+    },
+    "equipment_assessment": {
+      "type": "object",
+      "properties": {
+        "can_estimate_shaft_effect": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "suggested_fitting_trial": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "can_estimate_shaft_effect",
+        "reason",
+        "suggested_fitting_trial"
+      ],
+      "additionalProperties": false
+    },
+    "charts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "player_id",
+    "summary",
+    "evidence",
+    "swing_tendency",
+    "equipment_assessment",
+    "charts",
+    "limitations",
+    "next_steps"
+  ],
+  "additionalProperties": false
+}

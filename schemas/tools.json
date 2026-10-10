@@ -1,0 +1,72 @@
+[
+  {
+    "type": "function",
+    "name": "query_player_history",
+    "strict": true,
+    "description": "Retrieve the latest right-handed driver shots from configured storage. Use exact Player_ID such as Player A. Returns a history_id for subsequent tools.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "player_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 6,
+          "maximum": 200
+        }
+      },
+      "required": [
+        "player_id",
+        "limit"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "type": "function",
+    "name": "predict_swing_tendency",
+    "strict": true,
+    "description": "Classify the latest observed shot using a retrieved history_id. Python computes model features from trusted stored measurements. Cannot predict shaft effects.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "history_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "history_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "type": "function",
+    "name": "generate_performance_chart",
+    "strict": true,
+    "description": "Export an editable SVG using a retrieved history_id. Spin/carry is observational; delivery groups are not ball-flight dispersion.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "history_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "spin_carry",
+            "delivery_groups"
+          ]
+        }
+      },
+      "required": [
+        "history_id",
+        "kind"
+      ],
+      "additionalProperties": false
+    }
+  }
+]

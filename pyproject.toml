@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "golf-performance-agent"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["pandas>=2.2,<3", "numpy>=1.26,<3", "requests>=2.32,<3", "scikit-learn>=1.5,<2", "xgboost>=2.1,<4", "matplotlib>=3.9,<4", "seaborn>=0.13,<1", "openai>=2,<3", "astrapy>=2,<3", "jsonschema>=4.23,<5", "python-dotenv>=1,<2"]
+
+[project.scripts]
+golf-agent = "golf_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["golf_agent*"]
